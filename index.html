@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>9XD slack #game accounts</title>
-	<style type="text/css">
-		
-		html, body, div, span, applet, object, iframe,
-		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-		a, abbr, acronym, address, big, cite, code,
-		del, dfn, em, img, ins, kbd, q, s, samp,
-		small, strike, strong, sub, sup, tt, var,
-		b, u, i, center,
-		dl, dt, dd, ol, ul, li,
-		fieldset, form, label, legend,
-		table, caption, tbody, tfoot, thead, tr, th, td,
-		article, aside, canvas, details, embed, 
-		figure, figcaption, footer, header, hgroup, 
-		menu, nav, output, ruby, section, summary,
-		time, mark, audio, video {
-			margin: 0;
-			padding: 0;
-			border: 0;
-			font-size: 100%;
-			font: inherit;
-			vertical-align: baseline;
-		}
-		#accounts {
-		  margin-top: 10px;
-		  width: 100%;
-		  max-width: 1200px;
-		  display: grid;
-		  grid-template-columns: repeat(3, 1fr);
-		  grid-gap: 10px;
-		  grid-auto-rows: minmax(300px, auto);
-		  margin: 0 auto;
-		  
-		}
-		.account {
-		}
+  <title>9XD slack #game accounts</title>
+  <style type="text/css">
+    
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    #accounts {
+      margin-top: 10px;
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(300px, auto);
+      margin: 0 auto;
+      
+    }
+    .account {
+    }
 
-		.account-thumbnail {
-		  width: 150px;
-		  height: 150px;
-		  max-width: 150px;
-		  max-height: 150px;
-		  float: left;
-		}
-		.nickname {
-		  font-weight: bold;
-		}
+    .account-thumbnail {
+      width: 150px;
+      height: 150px;
+      max-width: 150px;
+      max-height: 150px;
+      float: left;
+    }
+    .nickname {
+      font-weight: bold;
+    }
 
-		.nickname,
-		.community-title {
-		}
+    .nickname,
+    .community-title {
+    }
 
-		.account-info {
-		  margin-left: 160px;
-		}
+    .account-info {
+      margin-left: 160px;
+    }
 
-	</style>
+  </style>
 </head>
 <body>
 <div id="accounts">
   
 </div>
 <script type="text/javascript">
-	
+  
 const gameAccountsDom = (account) => {
   let gameAccountHtml = "";
   if(account.psn) 
@@ -87,26 +87,28 @@ getAccountsRequest.open('GET', './accounts.json');
 getAccountsRequest.onreadystatechange = function (aEvt) {
   if (getAccountsRequest.readyState == 4) {
      if(getAccountsRequest.status == 200) {
-        const accounts = JSON.parse(req.response);
+        const accounts = JSON.parse(getAccountsRequest.response);
         accounts.forEach((account) => {
-					const accountEl = document.createElement("div");
-					accountEl.className = "account";
-					if(account.thumbnail) 
-					accountEl.innerHTML = `<img class="account-thumbnail" src="${account.thumbnail}">`;
-					const accountInfoEl = document.createElement("div");
-					accountInfoEl.className = "account-info"  
-					if(!account.nickname) return;
-						accountInfoEl.innerHTML += `<p class="nickname">${account.nickname}</p>`;
+          const accountEl = document.createElement("div");
+          accountEl.className = "account";
+          if(account.thumbnail) 
+          accountEl.innerHTML = `<img class="account-thumbnail" src="${account.thumbnail}">`;
+          const accountInfoEl = document.createElement("div");
+          accountInfoEl.className = "account-info"  
+          if(!account.nickname) return;
+            accountInfoEl.innerHTML += `<p class="nickname">${account.nickname}</p>`;
 
-					accountInfoEl.innerHTML += gameAccountsDom(account);
-					accountEl.appendChild(accountInfoEl);
-					document.getElementById("accounts").appendChild(accountEl);
+          accountInfoEl.innerHTML += gameAccountsDom(account);
+          accountEl.appendChild(accountInfoEl);
+          document.getElementById("accounts").appendChild(accountEl);
   
-				});
+        });
      }
   }
 };
-getAccountsRequest.send(null);
+getAccounts
+
+uest.send(null);
   
 </script>
 </body>
