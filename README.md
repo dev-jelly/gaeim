@@ -16,3 +16,5 @@
 현재 지원하는 커뮤니티는 `steam, origin, psn, xbox, switch, uplay, blizzard` 입니다.
 각 항목에 남들이 알아볼 수 있게 계정을 잘 적어주시면 되며, thubnail은 옵션 nickname은 필수입니다.
 
+## 앞으로 할 일 
+### 꾸미기!!
