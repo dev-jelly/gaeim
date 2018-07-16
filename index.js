@@ -37,7 +37,7 @@ const addAccountInfoDOM = account => {
   return accountEl;
 };
 
-fetch("http://jellyms.kr/gaeim/accounts.json")
+fetch("./accounts.json")
   .then(res => res.json())
   .then(accounts => {
     const accountsDOM = createDivWithClass("accounts");
