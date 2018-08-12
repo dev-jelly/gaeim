@@ -115,3 +115,7 @@ video {
 .account-info {
   margin-left: 160px;
 }
+
+.community-title {
+  text-transform: uppercase;
+}
