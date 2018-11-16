@@ -15,6 +15,10 @@ const addAccountInfoDOM = account => {
     accountEl.innerHTML = `<img class="account-thumbnail" src="${
       account.thumbnail
     }">`;
+  } else {
+    accountEl.innerHTML = `<img class="account-thumbnail" src="https://api.adorable.io/avatars/128/${
+      account.nickname
+    }.png">`;
   }
 
   const accountInfoEl = createDivWithClass("account-info");
