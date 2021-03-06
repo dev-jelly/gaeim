@@ -25,16 +25,17 @@ const addAccountInfoDOM = account => {
 
   // thumbnail 추가
   if (account.thumbnail) {
-    accountEl.innerHTML = `<img class="account-thumbnail" src="${
-      account.thumbnail
-    }">`;
+    accountEl.innerHTML = `<img class="h-full w-48 object-cover object-left rounded-l-lg" src="${account.thumbnail}">`;
   } else {
-    accountEl.innerHTML = `<img class="account-thumbnail" src="https://api.adorable.io/avatars/128/${
-      account.nickname
-    }.png">`;
+    accountEl.innerHTML = `<img class="h-full w-48 object-cover object-left rounded-l-lg" src="https://api.adorable.io/avatars/128/${account.nickname}.png">`;
   }
 
-  const accountInfoEl = createDivWithClass("account-info");
+  const accountInfoEl = createDivWithClass("p-3 flex-grow");
+
+  const accountHeader = document.createElement('h1');
+  accountHeader.className = 'text-xl font-semibold text-gray-800 truncate mb-4 px-4';
+  accountHeader.innerText = account.nickname;
+  accountInfoEl.innerHTML += accountHeader.outerHTML;
 
   // nickname 추가
   accountInfoEl.innerHTML += `<ul class="fa-ul"></ul>`;
@@ -60,5 +61,5 @@ fetch("./accounts.json")
       accountsDOM.appendChild(addAccountInfoDOM(account));
     });
 
-    document.body.appendChild(accountsDOM);
+    document.querySelector('#body').appendChild(accountsDOM);
   });
