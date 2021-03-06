@@ -21,7 +21,7 @@ const createPlatformListItem = (platform, value) => {
 }
 
 const addAccountInfoDOM = account => {
-  const accountEl = createDivWithClass("account");
+  const accountEl = createDivWithClass("max-w-2xl bg-white shadow-lg rounded-lg m-3 flex");
 
   // thumbnail 추가
   if (account.thumbnail) {
