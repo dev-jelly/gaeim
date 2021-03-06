@@ -12,8 +12,13 @@ const createDivWithClass = className => {
   return div;
 };
 
-const createPlatformLine = (platform, value) =>
-  `<p><span class="community-title ${platform}">${platform}:</span> ${value}</p>`;
+const createPlatformListItem = (platform, value) => {
+  if (iconMapping[platform] !== undefined) {
+    return `<li><span class="fa-li">${iconMapping[platform]}</span> ${value}</li>`;
+  } else {
+    return `<li style="margin-left: -1.5em;">${platform}: ${value}</li>`
+  }
+}
 
 const addAccountInfoDOM = account => {
   const accountEl = createDivWithClass("account");
@@ -32,15 +37,12 @@ const addAccountInfoDOM = account => {
   const accountInfoEl = createDivWithClass("account-info");
 
   // nickname 추가
-  accountInfoEl.innerHTML += `<p class="nickname">${account.nickname}</p>`;
+  accountInfoEl.innerHTML += `<ul class="fa-ul"></ul>`;
 
   // platform info 추가
   for (const platform in account) {
     if (platform !== "thumbnail" && platform !== "nickname") {
-      accountInfoEl.innerHTML += createPlatformLine(
-        platform,
-        account[platform]
-      );
+      accountInfoEl.querySelector('ul').innerHTML += createPlatformListItem(platform, account[platform]);
     }
   }
 
